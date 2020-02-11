@@ -1,0 +1,42 @@
+#ifndef ETREVIVANT_H_INCLUDED
+#define ETREVIVANT_H_INCLUDED
+
+
+class EtreVivant
+{
+
+public:
+
+/******************************/
+/** Constructeur/Destructeur **/
+/******************************/
+    EtreVivant(); //constructeur
+    virtual ~EtreVivant(); //destructeur
+
+/******************************/
+/**          Action          **/
+/******************************/
+    void afficherEtat(EtreVivant const& etre);
+    virtual void sePresenter () const;
+
+/******************************/
+/**        Accesseurs        **/
+/******************************/
+    bool checkestVivant () const;
+    unsigned int getPv() const;
+    //int setPv();
+    unsigned int getAge() const;
+
+
+protected:
+
+    unsigned int m_pv;
+    bool m_estVivant;
+    unsigned int m_age;
+
+private:
+
+
+};
+
+#endif // ETREVIVANT_H_INCLUDED
