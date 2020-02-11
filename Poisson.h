@@ -12,17 +12,25 @@ class Poisson : public EtreVivant
 {
 
 public:
-
+/******************************/
+/** Constructeur/Destructeur **/
+/******************************/
     Poisson(); //constructeur
     Poisson(std::string nom, std::string sexe);
     virtual ~Poisson(); //destructeur
 
+/******************************/
+/**          Action          **/
+/******************************/
     virtual void sePresenter () const;
     bool canIEat();
     //virtual void eatingHerbivore(Poisson *pMange, Algue *aEstMange)=0;
     //virtual void eatingCarnivore(Poisson *pMange, Poisson *pEstMange)=0;
 
     //void processus();
+/******************************/
+/**        Accesseurs        **/
+/******************************/
 
     std::string getNom() const;
     std::string getSexe() const;

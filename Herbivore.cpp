@@ -66,9 +66,6 @@ Sole::Sole() : Herbivore()//constructeur
 {
 }
 
-/*Sole::Sole(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
-{
-}*/
 
 Sole::Sole(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {
@@ -100,9 +97,6 @@ Bar::Bar() : Herbivore()//constructeur
 {
 }
 
-/*Bar::Bar(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
-{
-}*/
 
 Bar::Bar(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {
@@ -134,9 +128,6 @@ Carpe::Carpe() : Herbivore()//constructeur
 {
 }
 
-/*Carpe::Carpe(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
-{
-}*/
 
 Carpe::Carpe(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {

@@ -74,9 +74,6 @@ Merou::Merou() : Carnivore()//constructeur
 
 }
 
-/*Merou::Merou(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
-{
-}*/
 
 Merou::Merou(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
 {
@@ -109,9 +106,6 @@ Thon::Thon() : Carnivore()//constructeur
 {
 }
 
-/*Thon::Thon(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
-{
-}*/
 
 Thon::Thon(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
 {
@@ -143,9 +137,6 @@ Poisson_Clown::Poisson_Clown() : Carnivore()//constructeur
 {
 }
 
-/*Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
-{
-}*/
 
 Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
 {

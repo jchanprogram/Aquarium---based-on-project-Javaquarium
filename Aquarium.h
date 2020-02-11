@@ -20,9 +20,17 @@ class Aquarium
 
 public:
 
+/******************************/
+/** Constructeur/Destructeur **/
+/******************************/
+
     Aquarium(); //constructeur
     Aquarium(std::string nom);
     virtual ~Aquarium(); //destructeur
+
+/******************************/
+/**          Action          **/
+/******************************/
 
     void tourSuivant(unsigned int nbTour);
     void addPoisson();
@@ -38,9 +46,12 @@ public:
     void eatingCarnivore(Poisson *pMange, Poisson *pEstMange);
     void eatingHerbivore(Poisson *pMange, Algue *aEstMange);
 
+/******************************/
+/**        Accesseurs        **/
+/******************************/
+
     unsigned int getNbPoisson();
     unsigned int getNbAlgue();
-
 
 
 protected: //Privé mais accessible aux éléments enfants

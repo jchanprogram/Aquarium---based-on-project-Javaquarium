@@ -170,6 +170,11 @@ unsigned int Aquarium::getNbAlgue()
     }
 }*/
 
+
+/****************************************************************/
+/** Melange du vecteur pour choisir le poisson qui va manger   **/
+/** de maniere aléatoire .On prendra le vecteur[0] comme choix **/
+/****************************************************************/
 void Aquarium::shuffleVectorPoisson(std::vector<Poisson*>  p)
 {
     std::random_device randomDevice;
@@ -178,6 +183,10 @@ void Aquarium::shuffleVectorPoisson(std::vector<Poisson*>  p)
     std::shuffle(p.begin(), p.end(), g);
 }
 
+/****************************************************************/
+/** Melange du vecteur pour choisir l'algue qui va etre manger **/
+/** de maniere aléatoire. On prendra le vecteur[0] comme choix **/
+/****************************************************************/
 void Aquarium::shuffleVectorAlgue(std::vector<Algue*>  p)
 {
     std::random_device randomDevice;
@@ -185,6 +194,12 @@ void Aquarium::shuffleVectorAlgue(std::vector<Algue*>  p)
 
     std::shuffle(p.begin(), p.end(), g);
 }
+
+/****************************************************************/
+/** Melange du reste du vecteur pour choisir le poisson qui va **/
+/** etre manger de maniere aléatoire .On prendra le vecteur[1] **/
+/** comme choix                                                **/
+/****************************************************************/
 
 void Aquarium::choixPoissonQuiEstMange(std::vector<Poisson*> p)
 
@@ -195,10 +210,21 @@ void Aquarium::choixPoissonQuiEstMange(std::vector<Poisson*> p)
     std::shuffle(p.begin()+1, p.end(), g);
 }
 
+/****************************************************************/
+/** Qaund vector[0] a mange on fait une rotation pour faire    **/
+/** manger vecteur[1]. Vecteur[1] devient vecteur[0] et on     **/
+/** refait un melange du reste du vecteur. En faisant ces      **/
+/** rotations, je veux m'assure de parcourir toute les cibles  **/
+/** Cependant j'ai des enormes doutes sur la pertinence de cet **/
+/** algo, je dois pouvoir faire mieux et plus simple a mon avis**/
+/****************************************************************/
+
 void Aquarium::rotateVector(std::vector<Poisson*> etre, unsigned int rotation)
 {
     std::rotate(etre.begin(),etre.begin()+rotation,etre.end());
 }
+
+
 
 void Aquarium::eatingCarnivore(Poisson *pMange, Poisson *pEstMange)
 {
@@ -222,6 +248,10 @@ void Aquarium::eatingHerbivore(Poisson *pMange, Algue *aEstMange)
     aEstMange->recevoirDegats(2);
     std::cout <<pMange->getNom()<< " a manger Algue" <<std::endl;
 }
+
+/****************************************************************/
+/** Bouvle d'action : Manger pour tous les poissons            **/
+/****************************************************************/
 
 void Aquarium::processus()
 {

@@ -10,18 +10,21 @@ public:
 /******************************/
 /** Constructeur/Destructeur **/
 /******************************/
+
     EtreVivant(); //constructeur
     virtual ~EtreVivant(); //destructeur
 
 /******************************/
-/**    Etat/Affichage Etat   **/
+/**          Action          **/
 /******************************/
+
     void afficherEtat(EtreVivant const& etre);
     virtual void sePresenter () const;
 
 /******************************/
-/**        Gestion Pv        **/
+/**        Accesseurs        **/
 /******************************/
+
     bool checkEstVivant () const;
     void recevoirDegats(unsigned int degats);
     void recevoirPv(unsigned int pv);
