@@ -8,7 +8,7 @@
 #include <cstdlib>
 
 #include <random>
-#include <chrono>
+
 
 #include "Algue.h"
 #include "Poisson.h"
@@ -21,12 +21,12 @@ int main()
 {
     int nb;
 
-	// Creation de l'aquarium
-    /*unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::mt19937 generator (seed);
-    unsigned valeur = generator();
-    std::cout <<valeur;*/
+/*
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
+    std::cout << g;*/
 
+	// Creation de l'aquarium
 	Aquarium aquarium("juju");
 
 	std::cout << "Combien de poisson voulez-vous ?"<<std::endl;

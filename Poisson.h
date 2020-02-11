@@ -22,12 +22,12 @@ public:
 /******************************/
 /**          Action          **/
 /******************************/
-    virtual void sePresenter () const;
-    bool canIEat();
-    //virtual void eatingHerbivore(Poisson *pMange, Algue *aEstMange)=0;
-    //virtual void eatingCarnivore(Poisson *pMange, Poisson *pEstMange)=0;
 
-    //void processus();
+    virtual void sePresenter () const;
+    virtual void eating(EtreVivant &etre) = 0;
+    virtual bool checkSameSpecies(Poisson &p1, Poisson &p2);
+    virtual bool canIEat(Poisson &p1);
+
 /******************************/
 /**        Accesseurs        **/
 /******************************/
@@ -36,18 +36,17 @@ public:
     std::string getSexe() const;
     virtual std::string getType() const=0;
     virtual std::string getEspece() const=0;
-    void setHaveEat(bool haveEatThisTurn);
-    bool getHaveEat() const;
+    virtual bool getHaveEatThisTurn() const;
+    virtual bool setHaveEatThisTurn(bool haveEatThisTurn);
 
-    virtual bool checkSameSpecies(Poisson const& p1,Poisson const& p2) const;
-//    virtual bool checkSameSpecies(Poisson p1,Poisson p2) const;
 protected: //Privé mais accessible aux éléments enfants
 
     std::string m_nom;
     std::string m_sexe;
     std::string m_type;
     std::string m_espece;
-    bool m_haveEatThisTurn=false;
+    bool m_haveEatThisTurn;
+
 
 
 private:

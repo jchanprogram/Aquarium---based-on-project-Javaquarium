@@ -5,13 +5,14 @@
 #include "Tool_Javaquarium.h"
 
 #include "Poisson.h"
+#include "EtreVivant.h"
 
 
 Poisson::Poisson() : EtreVivant()//,m_pv(10),m_estVivant(true),m_age(0) //constructeur
 {
 }
 
-Poisson::Poisson(std::string nom, std::string sexe): EtreVivant(),m_nom(nom), m_sexe(sexe)
+Poisson::Poisson(std::string nom, std::string sexe): EtreVivant(),m_nom(nom), m_sexe(sexe),m_haveEatThisTurn(false)
 {
 }
 
@@ -33,6 +34,30 @@ void Poisson::sePresenter () const
     }
 }
 
+bool Poisson::checkSameSpecies(Poisson &p1, Poisson &p2)
+{
+    if(p1.getEspece()==p2.getEspece())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Poisson::canIEat(Poisson &p1)
+{
+    if(p1.getPv()<6)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 std::string Poisson::getNom() const
 {
     return m_nom;
@@ -43,19 +68,9 @@ std::string Poisson::getSexe() const
     return m_sexe;
 }
 
-bool Poisson::canIEat()
-{
-    if(m_pv < 6)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
 
-/*std::string Poisson::getType() const
+
+std::string Poisson::getType() const
 {
     return m_type;
 }
@@ -63,63 +78,14 @@ bool Poisson::canIEat()
 std::string Poisson::getEspece() const
 {
     return m_espece;
-}*/
-
-void Poisson::setHaveEat(bool haveEatThisTurn)
-{
-    m_haveEatThisTurn=haveEatThisTurn;
 }
 
-bool Poisson::getHaveEat() const
+bool Poisson::getHaveEatThisTurn() const
 {
     return m_haveEatThisTurn;
 }
 
-/*void Poisson::eatingCarnivore(Poisson pMange, Poisson pEstMange)
+bool Poisson::setHaveEatThisTurn(bool haveEatThisTurn)
 {
-    if(!Poisson::checkSameSpecies(pMange,pestMange))
-    {
-        pMange.recevoirPv(5);
-        pEstMange.recevoirDegats(4);
-
-        std::cout <<pMange.getNom()<< " a mange une partie de " <<pEstMange.getNom()<<std::endl;
-
-    }
-
-    else
-    {
-        std::cout <<pMange.getNom()<< " a essayer de manger " <<pEstMange.getNom()<<std::endl;
-    }
-}*/
-
-/*void Poisson::eatingHerbivore(Poisson pMange, Algue aEstMange)
-{
-    pMange.recevoirPv(3);
-    aEstMange.recevoirDegats(2);
-    std::cout <<pMange.getNom()<< " a manger Algue" <<std::endl;
-}*/
-
-/*void Poisson::eating(EtreVivant etre1, EtreVivant etre2, std::string type)
-{
-    if(type =="Carnivore")
-    {
-        Poisson::eatingCarnivore(EtreVivant etre1, EtreVivant etre2);
-    }
-
-    else if(type =="Herbivore")
-    {
-        Poisson::eatingherbivore(EtreVivant etre1, EtreVivant etre2);
-    }
-}*/
-
-bool Poisson::checkSameSpecies(Poisson const& poisson1,Poisson const& poisson2) const
-{
-    if(poisson1.getEspece()==poisson2.getEspece())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    m_haveEatThisTurn=haveEatThisTurn;
 }

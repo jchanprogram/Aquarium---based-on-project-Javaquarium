@@ -33,41 +33,18 @@ void Carnivore::sePresenter () const
     }
 }
 
-/*std::string Carnivore::getType() const
-{
-    return m_type;
-}*/
-
-/*void Carnivore::eating(EtreVivant & etre)
+void Carnivore::eating(EtreVivant &etre)
 {
     etre.recevoirDegats(4);
-}*/
+    this->recevoirPv(5);
+}
 
 std::string Carnivore::getType() const
 {
     return m_type;
 }
 
-/*void Carnivore::eatingCarnivore(Poisson *pMange, Poisson *pEstMange)
-{
-    if(!pMange->checkSameSpecies(pMange,pEstMange))
-    {
-        pMange->recevoirPv(5);
-        pEstMange->recevoirDegats(4);
 
-        std::cout <<pMange->getNom()<< " a mange une partie de " <<pEstMange->getNom()<<std::endl;
-
-    }
-
-    else
-    {
-        std::cout <<pMange->getNom()<< " a essayer de manger " <<pEstMange->getNom()<<std::endl;
-    }
-}*/
-
-/*void Carnivore::eatingHerbivore(Poisson *pMange, Algue *pEstMange)
-{
-}*/
 
 Merou::Merou() : Carnivore()//constructeur
 {

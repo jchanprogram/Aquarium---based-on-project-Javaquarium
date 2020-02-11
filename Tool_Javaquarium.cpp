@@ -2,10 +2,17 @@
 #include <iostream>
 #include <string>
 #include <random>
-#include <chrono>
+#include <vector>
+#include <algorithm>
 
 #include "Tool_Javaquarium.h"
 #include "EtreVivant.h"
+#include "Algue.h"
+#include "Poisson.h"
+#include "Aquarium.h"
+#include "Carnivore.h"
+#include "Herbivore.h"
+
 
 std::string choixNomPoisson()
 {
@@ -148,17 +155,11 @@ std::string choixEspecePoisson()
 
 }
 
-unsigned int randomNumber()
+
+/*void shuffleVector(std::vector<auto> A)
 {
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::mt19937 generator (seed);
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
 
-    unsigned int valeurRand = generator();
-
-    return valeurRand;
-}
-
-unsigned int choisirCible(unsigned int random, unsigned int nbElement)
-{
-    return random%nbElement;
-}
+    std::shuffle(A.begin(), A.end(), g);
+}*/

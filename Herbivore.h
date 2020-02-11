@@ -16,6 +16,7 @@ public:
 /******************************/
 /** Constructeur/Destructeur **/
 /******************************/
+
     Herbivore(); //constructeur
     Herbivore(std::string nom, std::string sexe);
     Herbivore(std::string nom, std::string sexe, std::string type);
@@ -24,21 +25,15 @@ public:
 /******************************/
 /**          Action          **/
 /******************************/
+
     virtual void sePresenter () const;
-    //virtual void eating(EtreVivant & etre);
+    virtual void eating(EtreVivant &etre);
 
 /******************************/
 /**        Accesseurs        **/
 /******************************/
     virtual std::string getType() const;
     virtual std::string getEspece() const=0;
-
-    //std::string getType() const;
-
-    //virtual void eatingHerbivore(Poisson *pMange, Algue *aEstMange);
-    //virtual void eatingCarnivore(Poisson *pMange, Poisson *pEstMange);
-    //virtual void eating(Poisson *pMange, Algue *aEstMange);
-
 
 protected:
 

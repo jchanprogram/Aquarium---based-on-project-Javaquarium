@@ -1,6 +1,10 @@
 #ifndef ETREVIVANT_H_INCLUDED
 #define ETREVIVANT_H_INCLUDED
 
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
 
 class EtreVivant
 {

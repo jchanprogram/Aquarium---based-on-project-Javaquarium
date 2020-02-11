@@ -7,6 +7,7 @@
 
 #include "Poisson.h"
 #include "Algue.h"
+#include "EtreVivant.h"
 
 class Carnivore : public Poisson
 {
@@ -27,7 +28,7 @@ public:
 /******************************/
 
     virtual void sePresenter () const;
-    //virtual void eating(EtreVivant & etre);
+    virtual void eating(EtreVivant &etre);
 
 /******************************/
 /**        Accesseurs        **/
@@ -35,10 +36,6 @@ public:
 
     virtual std::string getType() const;
     virtual std::string getEspece() const=0;
-
-    //std::string getType() const;
-    //virtual void eatingCarnivore(Poisson *pMange, Poisson *pEstMange);
-    //virtual void eatingHerbivore(Poisson *pMange, Algue *aEstMange);
 
 
 protected:

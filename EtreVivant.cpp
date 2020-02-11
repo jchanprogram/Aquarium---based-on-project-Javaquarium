@@ -66,3 +66,5 @@ void EtreVivant::recevoirPv(unsigned int pv)
 {
     m_pv+=pv;
 }
+
+

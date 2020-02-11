@@ -34,27 +34,12 @@ void Herbivore::sePresenter () const
     }
 }
 
-/*std::string Herbivore::getType() const
-{
-    return m_type;
-}*/
-
-/*void Herbivore::eating(EtreVivant & etre)
+void Herbivore::eating(EtreVivant &etre)
 {
     etre.recevoirDegats(2);
-}*/
+    this->recevoirPv(3);
+}
 
-
-/*void Herbivore::eatingHerbivore(Poisson *pMange, Algue *aEstMange);
-{
-    pMange->recevoirPv(3);
-    aEstMange->recevoirDegats(2);
-    std::cout <<pMange->getNom()<< " a manger Algue" <<std::endl;
-}*/
-
-/*void Herbivore::eatingCarnivore(Poisson *pMange, Poisson *pEstMange)
-{
-}*/
 
 
 std::string Herbivore::getType() const

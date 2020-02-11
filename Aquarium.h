@@ -36,16 +36,10 @@ public:
     void addPoisson();
     void addAlgue();
     void afficherEtat();
-    void processus();
-    //bool checkSameSpecies(Poisson const& p1,Poisson const& p2) const;
-    void shuffleVectorPoisson(std::vector<Poisson*> p);
-    void shuffleVectorAlgue(std::vector<Algue*> a);
-    void choixPoissonQuiEstMange(std::vector<Poisson*> p);
-    void rotateVector(std::vector<Poisson*> etre, unsigned int rotation);
 
-    void eatingCarnivore(Poisson *pMange, Poisson *pEstMange);
-    void eatingHerbivore(Poisson *pMange, Algue *aEstMange);
 
+    void faireMangerPoisson();
+    void debutTour();
 /******************************/
 /**        Accesseurs        **/
 /******************************/
