@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Herbivore.h"
+#include "Algue.h"
 
 Herbivore::Herbivore() : Poisson() //constructeur
 {
@@ -12,7 +13,7 @@ Herbivore::Herbivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
 {
 }
 
-Herbivore::Herbivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe), m_type(type)
+Herbivore::Herbivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe),m_type("Herbivore")
 {
 }
 
@@ -33,12 +34,43 @@ void Herbivore::sePresenter () const
     }
 }
 
+/*std::string Herbivore::getType() const
+{
+    return m_type;
+}*/
+
+/*void Herbivore::eating(EtreVivant & etre)
+{
+    etre.recevoirDegats(2);
+}*/
+
+
+/*void Herbivore::eatingHerbivore(Poisson *pMange, Algue *aEstMange);
+{
+    pMange->recevoirPv(3);
+    aEstMange->recevoirDegats(2);
+    std::cout <<pMange->getNom()<< " a manger Algue" <<std::endl;
+}*/
+
+/*void Herbivore::eatingCarnivore(Poisson *pMange, Poisson *pEstMange)
+{
+}*/
+
+
+std::string Herbivore::getType() const
+{
+    return m_type;
+}
+
 Sole::Sole() : Herbivore()//constructeur
 {
 }
 
+/*Sole::Sole(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
+{
+}*/
 
-Sole::Sole(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+Sole::Sole(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {
 }
 
@@ -59,11 +91,20 @@ void Sole::sePresenter () const
     }
 }
 
+std::string Sole::getEspece() const
+{
+    return m_espece;
+}
+
 Bar::Bar() : Herbivore()//constructeur
 {
 }
 
-Bar::Bar(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+/*Bar::Bar(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
+{
+}*/
+
+Bar::Bar(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {
 }
 
@@ -84,12 +125,20 @@ void Bar::sePresenter () const
     }
 }
 
+std::string Bar::getEspece() const
+{
+    return m_espece;
+}
+
 Carpe::Carpe() : Herbivore()//constructeur
 {
 }
 
+/*Carpe::Carpe(std::string nom, std::string sexe, std::string type) : Herbivore(nom,sexe,type)
+{
+}*/
 
-Carpe::Carpe(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+Carpe::Carpe(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
 {
 }
 
@@ -110,6 +159,9 @@ void Carpe::sePresenter () const
     }
 }
 
-
+std::string Carpe::getEspece() const
+{
+    return m_espece;
+}
 
 

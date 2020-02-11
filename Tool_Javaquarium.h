@@ -15,7 +15,11 @@ std::string choixSexePoisson();
 std::string choixTypePoisson();
 
 std::string choixEspecePoisson();
+//int choixEspecePoisson();
 
+//void afficheEtat(EtreVivant const& etre);
 
+unsigned int randomNumber();
+unsigned int choisirCible(unsigned int random, unsigned int nbElement);
 
 #endif // TOOL_JAVAQUARIUM_H_INCLUDED

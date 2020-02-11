@@ -12,22 +12,15 @@ class Algue : public EtreVivant
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
     Algue(); //constructeur
     Algue(bool naissance);
     virtual ~Algue(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    //virtual void recevoirDegats(unsigned int degats);
+    //virtual void eating();
 
-
-
-protected:
+protected: //Privé mais accessible aux éléments enfants
 
 private:
 

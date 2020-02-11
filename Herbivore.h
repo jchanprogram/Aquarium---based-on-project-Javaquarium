@@ -6,30 +6,34 @@
 #include <string>
 
 #include "Poisson.h"
+#include "Algue.h"
 
 class Herbivore : public Poisson
 {
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
     Herbivore(); //constructeur
     Herbivore(std::string nom, std::string sexe);
     Herbivore(std::string nom, std::string sexe, std::string type);
     virtual~Herbivore(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    //virtual void eating(EtreVivant & etre);
+    virtual std::string getType() const;
+    virtual std::string getEspece() const=0;
+
+    //std::string getType() const;
+
+    //virtual void eatingHerbivore(Poisson *pMange, Algue *aEstMange);
+    //virtual void eatingCarnivore(Poisson *pMange, Poisson *pEstMange);
+    //virtual void eating(Poisson *pMange, Algue *aEstMange);
+
 
 protected:
 
     std::string m_type;
-
+    //std::string m_espece;
 
 private:
 
@@ -40,19 +44,13 @@ class Sole : public Herbivore
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
-
     Sole(); //constructeur
-    Sole(std::string nom, std::string sexe, std::string espece);
+    //Sole(std::string nom, std::string sexe, std::string type);
+    Sole(std::string nom, std::string sexe, std::string type ,std::string espece);
     virtual~Sole(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    virtual std::string getEspece() const;
 
 
 protected:
@@ -66,19 +64,13 @@ class Bar : public Herbivore
 {
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
-
     Bar(); //constructeur
-    Bar(std::string nom, std::string sexe, std::string espece);
+    //Bar(std::string nom, std::string sexe, std::string type);
+    Bar(std::string nom, std::string sexe, std::string type ,std::string espece);
     virtual~Bar(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    virtual std::string getEspece() const;
 
 protected:
 
@@ -93,19 +85,13 @@ class Carpe : public Herbivore
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
-
     Carpe(); //constructeur
-    Carpe(std::string nom, std::string sexe, std::string espece);
+    //Carpe(std::string nom, std::string sexe, std::string type);
+    Carpe(std::string nom, std::string sexe, std::string type ,std::string espece);
     virtual~Carpe(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
      virtual void sePresenter () const;
+     virtual std::string getEspece() const;
 
 protected:
 

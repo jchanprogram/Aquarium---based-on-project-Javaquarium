@@ -29,3 +29,11 @@ void Algue::sePresenter () const
     }
 }
 
+/*void Algue::recevoirDegats(unsigned int degats)
+{
+        m_pv-=degats;
+}*/
+/*void Algue::eating()
+{
+    std::cout <<"et salut toi merde" << std::endl;
+}*/

@@ -21,6 +21,12 @@ int main()
 {
     int nb;
 
+	// Creation de l'aquarium
+    /*unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::mt19937 generator (seed);
+    unsigned valeur = generator();
+    std::cout <<valeur;*/
+
 	Aquarium aquarium("juju");
 
 	std::cout << "Combien de poisson voulez-vous ?"<<std::endl;

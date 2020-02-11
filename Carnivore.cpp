@@ -12,7 +12,7 @@ Carnivore::Carnivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
 {
 }
 
-Carnivore::Carnivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe), m_type(type)
+Carnivore::Carnivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe),m_type("Carnivore")
 {
 }
 
@@ -33,13 +33,54 @@ void Carnivore::sePresenter () const
     }
 }
 
-Merou::Merou() : Carnivore()//constructeur
+/*std::string Carnivore::getType() const
 {
+    return m_type;
+}*/
+
+/*void Carnivore::eating(EtreVivant & etre)
+{
+    etre.recevoirDegats(4);
+}*/
+
+std::string Carnivore::getType() const
+{
+    return m_type;
 }
 
-
-Merou::Merou(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+/*void Carnivore::eatingCarnivore(Poisson *pMange, Poisson *pEstMange)
 {
+    if(!pMange->checkSameSpecies(pMange,pEstMange))
+    {
+        pMange->recevoirPv(5);
+        pEstMange->recevoirDegats(4);
+
+        std::cout <<pMange->getNom()<< " a mange une partie de " <<pEstMange->getNom()<<std::endl;
+
+    }
+
+    else
+    {
+        std::cout <<pMange->getNom()<< " a essayer de manger " <<pEstMange->getNom()<<std::endl;
+    }
+}*/
+
+/*void Carnivore::eatingHerbivore(Poisson *pMange, Algue *pEstMange)
+{
+}*/
+
+Merou::Merou() : Carnivore()//constructeur
+{
+
+}
+
+/*Merou::Merou(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
+{
+}*/
+
+Merou::Merou(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
+{
+    //m_type="Carnivore";
 }
 
 Merou::~Merou() //destructeur
@@ -59,12 +100,20 @@ void Merou::sePresenter () const
     }
 }
 
+std::string Merou::getEspece() const
+{
+    return m_espece;
+}
+
 Thon::Thon() : Carnivore()//constructeur
 {
 }
 
+/*Thon::Thon(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
+{
+}*/
 
-Thon::Thon(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+Thon::Thon(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
 {
 }
 
@@ -85,12 +134,20 @@ void Thon::sePresenter () const
     }
 }
 
+std::string Thon::getEspece() const
+{
+    return m_espece;
+}
+
 Poisson_Clown::Poisson_Clown() : Carnivore()//constructeur
 {
 }
 
+/*Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string type) : Carnivore(nom,sexe,type)
+{
+}*/
 
-Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
 {
 }
 
@@ -109,4 +166,9 @@ void Poisson_Clown::sePresenter () const
     {
         std::cout << "Je suis mort(e)" <<std::endl;
     }
+}
+
+std::string Poisson_Clown::getEspece() const
+{
+    return m_espece;
 }

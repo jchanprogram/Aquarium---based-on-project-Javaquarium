@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <random>
+#include <chrono>
 
 #include "Tool_Javaquarium.h"
 #include "EtreVivant.h"
@@ -58,6 +60,7 @@ std::string choixSexePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 }
 
@@ -140,6 +143,22 @@ std::string choixEspecePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 
+}
+
+unsigned int randomNumber()
+{
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::mt19937 generator (seed);
+
+    unsigned int valeurRand = generator();
+
+    return valeurRand;
+}
+
+unsigned int choisirCible(unsigned int random, unsigned int nbElement)
+{
+    return random%nbElement;
 }

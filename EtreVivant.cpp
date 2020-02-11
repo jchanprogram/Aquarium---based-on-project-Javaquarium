@@ -4,7 +4,7 @@
 
 #include "EtreVivant.h"
 
-EtreVivant::EtreVivant() : m_pv(10), m_estVivant(true), m_age(0)
+EtreVivant::EtreVivant() : m_pv(5), m_estVivant(true), m_age(0)
 {
 }
 
@@ -31,9 +31,9 @@ void EtreVivant::sePresenter () const
 
 }
 
-bool EtreVivant::checkestVivant () const
+bool EtreVivant::checkEstVivant () const
 {
-    if(m_estVivant)
+    if(m_pv > 0)
     {
         return true;
     }
@@ -51,4 +51,18 @@ unsigned int EtreVivant::getPv() const
 unsigned int EtreVivant::getAge() const
 {
     return m_age;
+}
+
+void EtreVivant::recevoirDegats(unsigned int degats)
+{
+    m_pv-=degats;
+    if(m_pv < 0)
+    {
+        m_pv = 0;
+    }
+}
+
+void EtreVivant::recevoirPv(unsigned int pv)
+{
+    m_pv+=pv;
 }
