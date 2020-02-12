@@ -58,8 +58,8 @@ int main()
     {
         aquarium.addAlgue();
     }
-
-    aquarium.tourSuivant(5);
+    aquarium.afficherEtatCreation();
+    aquarium.tourSuivant(10);
 
 
 	std::cout << "Appuyer sur une touche pour continuer ..." << std::endl;

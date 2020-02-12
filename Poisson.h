@@ -16,7 +16,7 @@ public:
 /** Constructeur/Destructeur **/
 /******************************/
     Poisson(); //constructeur
-    Poisson(std::string nom, std::string sexe);
+    Poisson(std::string nom, std::string sexe, unsigned int age);
     virtual ~Poisson(); //destructeur
 
 /******************************/
@@ -37,7 +37,7 @@ public:
     virtual std::string getType() const=0;
     virtual std::string getEspece() const=0;
     virtual bool getHaveEatThisTurn() const;
-    virtual bool setHaveEatThisTurn(bool haveEatThisTurn);
+    virtual void setHaveEatThisTurn(bool haveEatThisTurn);
 
 protected: //Privé mais accessible aux éléments enfants
 

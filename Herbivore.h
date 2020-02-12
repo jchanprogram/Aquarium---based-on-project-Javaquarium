@@ -18,8 +18,8 @@ public:
 /******************************/
 
     Herbivore(); //constructeur
-    Herbivore(std::string nom, std::string sexe);
-    Herbivore(std::string nom, std::string sexe, std::string type);
+    Herbivore(std::string nom, std::string sexe,unsigned int age);
+    Herbivore(std::string nom, std::string sexe,unsigned int age, std::string type);
     virtual~Herbivore(); //destructeur
 
 /******************************/
@@ -50,7 +50,7 @@ class Sole : public Herbivore
 public:
 
     Sole(); //constructeur
-    Sole(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Sole(std::string nom, std::string sexe, unsigned int age,std::string type ,std::string espece);
     virtual~Sole(); //destructeur
 
     virtual void sePresenter () const;
@@ -69,7 +69,7 @@ class Bar : public Herbivore
 public:
 
     Bar(); //constructeur
-    Bar(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Bar(std::string nom, std::string sexe,unsigned int age, std::string type ,std::string espece);
     virtual~Bar(); //destructeur
 
     virtual void sePresenter () const;
@@ -89,7 +89,7 @@ class Carpe : public Herbivore
 public:
 
     Carpe(); //constructeur
-    Carpe(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Carpe(std::string nom, std::string sexe,unsigned int age, std::string type ,std::string espece);
     virtual~Carpe(); //destructeur
 
      virtual void sePresenter () const;

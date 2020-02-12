@@ -36,10 +36,11 @@ public:
     void addPoisson();
     void addAlgue();
     void afficherEtat();
-
+    void debutTour();
+    void afficherEtatCreation();
 
     void faireMangerPoisson();
-    void debutTour();
+
 /******************************/
 /**        Accesseurs        **/
 /******************************/
@@ -66,7 +67,7 @@ private:
     std::string m_sexe;
     std::string m_type;
     std::string m_espece;
-    //unsigned int nbTour;
+    unsigned int m_age;
 
 
 

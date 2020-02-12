@@ -9,11 +9,11 @@ Herbivore::Herbivore() : Poisson() //constructeur
 {
 }
 
-Herbivore::Herbivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
+Herbivore::Herbivore(std::string nom, std::string sexe,unsigned int age) : Poisson(nom,sexe,age)
 {
 }
 
-Herbivore::Herbivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe),m_type("Herbivore")
+Herbivore::Herbivore(std::string nom, std::string sexe,unsigned int age, std::string type) : Poisson(nom,sexe,age),m_type("Herbivore")
 {
 }
 
@@ -52,7 +52,7 @@ Sole::Sole() : Herbivore()//constructeur
 }
 
 
-Sole::Sole(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
+Sole::Sole(std::string nom, std::string sexe,unsigned int age, std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -83,7 +83,7 @@ Bar::Bar() : Herbivore()//constructeur
 }
 
 
-Bar::Bar(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
+Bar::Bar(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -114,7 +114,7 @@ Carpe::Carpe() : Herbivore()//constructeur
 }
 
 
-Carpe::Carpe(std::string nom, std::string sexe, std::string type, std::string espece) : Herbivore(nom,sexe,type), m_espece(espece)
+Carpe::Carpe(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 

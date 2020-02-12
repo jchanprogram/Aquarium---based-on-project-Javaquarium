@@ -17,6 +17,8 @@ std::string choixTypePoisson();
 
 std::string choixEspecePoisson();
 
+unsigned int choixAge();
+
 //void shuffleVector(std::vector<auto> A);
 
 #endif // TOOL_JAVAQUARIUM_H_INCLUDED

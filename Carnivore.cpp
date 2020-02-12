@@ -8,11 +8,11 @@ Carnivore::Carnivore() : Poisson() //constructeur
 {
 }
 
-Carnivore::Carnivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
+Carnivore::Carnivore(std::string nom, std::string sexe,unsigned int age) : Poisson(nom,sexe,age)
 {
 }
 
-Carnivore::Carnivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe),m_type("Carnivore")
+Carnivore::Carnivore(std::string nom, std::string sexe,unsigned int age, std::string type) : Poisson(nom,sexe,age),m_type("Carnivore")
 {
 }
 
@@ -52,7 +52,7 @@ Merou::Merou() : Carnivore()//constructeur
 }
 
 
-Merou::Merou(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
+Merou::Merou(std::string nom, std::string sexe,unsigned int age,std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
 {
     //m_type="Carnivore";
 }
@@ -84,7 +84,7 @@ Thon::Thon() : Carnivore()//constructeur
 }
 
 
-Thon::Thon(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
+Thon::Thon(std::string nom, std::string sexe,unsigned int age, std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -115,7 +115,7 @@ Poisson_Clown::Poisson_Clown() : Carnivore()//constructeur
 }
 
 
-Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string type, std::string espece) : Carnivore(nom,sexe,type), m_espece(espece)
+Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 

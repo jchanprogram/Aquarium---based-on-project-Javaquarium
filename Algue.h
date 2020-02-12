@@ -17,7 +17,7 @@ public:
 /******************************/
 
     Algue(); //constructeur
-    Algue(bool naissance);
+    Algue(bool naissance, unsigned int age);
     virtual ~Algue(); //destructeur
 
 /******************************/

@@ -19,8 +19,8 @@ public:
 /******************************/
 
     Carnivore(); //constructeur
-    Carnivore(std::string nom, std::string sexe);
-    Carnivore(std::string nom, std::string sexe, std::string type);
+    Carnivore(std::string nom, std::string sexe, unsigned int age);
+    Carnivore(std::string nom, std::string sexe,unsigned int age, std::string type);
     virtual~Carnivore(); //destructeur
 
 /******************************/
@@ -53,7 +53,7 @@ class Merou : public Carnivore
 public:
 
     Merou(); //constructeur
-    Merou(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Merou(std::string nom, std::string sexe,unsigned int age,std::string type ,std::string espece);
     virtual~Merou(); //destructeur
 
     virtual void sePresenter () const;
@@ -72,7 +72,7 @@ class Thon : public Carnivore
 public:
 
     Thon(); //constructeur
-    Thon(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Thon(std::string nom, std::string sexe, unsigned int age,std::string type ,std::string espece);
     virtual~Thon(); //destructeur
 
     virtual void sePresenter () const;
@@ -92,7 +92,7 @@ class Poisson_Clown : public Carnivore
 public:
 
     Poisson_Clown(); //constructeur
-    Poisson_Clown(std::string nom, std::string sexe, std::string type ,std::string espece);
+    Poisson_Clown(std::string nom, std::string sexe,unsigned int age, std::string type ,std::string espece);
     virtual~Poisson_Clown(); //destructeur
 
     virtual void sePresenter () const;

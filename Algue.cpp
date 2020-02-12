@@ -8,7 +8,7 @@ Algue::Algue() : EtreVivant()//: m_etat(true)
 {
 }
 
-Algue::Algue(bool naissance): EtreVivant(),m_naissance(naissance)
+Algue::Algue(bool naissance, unsigned int age) : EtreVivant(age),m_naissance(naissance)
 {
 }
 

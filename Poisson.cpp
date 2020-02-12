@@ -12,7 +12,7 @@ Poisson::Poisson() : EtreVivant()//,m_pv(10),m_estVivant(true),m_age(0) //constr
 {
 }
 
-Poisson::Poisson(std::string nom, std::string sexe): EtreVivant(),m_nom(nom), m_sexe(sexe),m_haveEatThisTurn(false)
+Poisson::Poisson(std::string nom, std::string sexe, unsigned int age): EtreVivant(age),m_nom(nom), m_sexe(sexe),m_haveEatThisTurn(false)
 {
 }
 
@@ -85,7 +85,7 @@ bool Poisson::getHaveEatThisTurn() const
     return m_haveEatThisTurn;
 }
 
-bool Poisson::setHaveEatThisTurn(bool haveEatThisTurn)
+void Poisson::setHaveEatThisTurn(bool haveEatThisTurn)
 {
     m_haveEatThisTurn=haveEatThisTurn;
 }

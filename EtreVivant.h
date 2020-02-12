@@ -16,6 +16,7 @@ public:
 /******************************/
 
     EtreVivant(); //constructeur
+    EtreVivant(unsigned int age); //constructeur
     virtual ~EtreVivant(); //destructeur
 
 /******************************/
@@ -32,12 +33,13 @@ public:
     bool checkEstVivant () const;
     void recevoirDegats(unsigned int degats);
     void recevoirPv(unsigned int pv);
-
+    void ageSup();
     //virtual void isEating(EtreVivant & etre)=0;
     //virtual void eating()=0;
     unsigned int getPv() const;
     //int setPv();
     unsigned int getAge() const;
+    unsigned int setAge(unsigned int age);
 
 /******************************/
 /**        Autre        **/
