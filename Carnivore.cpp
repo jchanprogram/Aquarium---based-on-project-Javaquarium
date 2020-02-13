@@ -8,11 +8,11 @@ Carnivore::Carnivore() : Poisson() //constructeur
 {
 }
 
-Carnivore::Carnivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
+Carnivore::Carnivore(std::string nom, std::string sexe,unsigned int age) : Poisson(nom,sexe,age)
 {
 }
 
-Carnivore::Carnivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe), m_type(type)
+Carnivore::Carnivore(std::string nom, std::string sexe,unsigned int age, std::string type) : Poisson(nom,sexe,age),m_type("Carnivore")
 {
 }
 
@@ -33,13 +33,28 @@ void Carnivore::sePresenter () const
     }
 }
 
-Merou::Merou() : Carnivore()//constructeur
+void Carnivore::eating(EtreVivant &etre)
 {
+    etre.recevoirDegats(4);
+    this->recevoirPv(5);
+}
+
+std::string Carnivore::getType() const
+{
+    return m_type;
 }
 
 
-Merou::Merou(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+
+Merou::Merou() : Carnivore()//constructeur
 {
+
+}
+
+
+Merou::Merou(std::string nom, std::string sexe,unsigned int age,std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
+{
+    //m_type="Carnivore";
 }
 
 Merou::~Merou() //destructeur
@@ -59,12 +74,32 @@ void Merou::sePresenter () const
     }
 }
 
+std::string Merou::getEspece() const
+{
+    return m_espece;
+}
+
 Thon::Thon() : Carnivore()//constructeur
 {
 }
 
+void Merou::hermaWithAge()
+{
+    if(this->getAge()>10)
+    {
+        if(this->getSexe()=="Male")
+        {
+            this->setSexe("Femelle");
+        }
+        else
+        {
+            this->setSexe("Male");
+        }
+    }
+}
 
-Thon::Thon(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+
+Thon::Thon(std::string nom, std::string sexe,unsigned int age, std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -85,12 +120,17 @@ void Thon::sePresenter () const
     }
 }
 
+std::string Thon::getEspece() const
+{
+    return m_espece;
+}
+
 Poisson_Clown::Poisson_Clown() : Carnivore()//constructeur
 {
 }
 
 
-Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, std::string espece) : Carnivore(nom,sexe), m_espece(espece)
+Poisson_Clown::Poisson_Clown(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -108,5 +148,25 @@ void Poisson_Clown::sePresenter () const
     else
     {
         std::cout << "Je suis mort(e)" <<std::endl;
+    }
+}
+
+std::string Poisson_Clown::getEspece() const
+{
+    return m_espece;
+}
+
+void Poisson_Clown::hermaOpportuniste (Poisson &p1)
+{
+    if(checkSameSexe(*this, p1))
+    {
+        if(this->getSexe()=="Male")
+        {
+            this->setSexe("Femelle");
+        }
+        else
+        {
+            this->setSexe("Male");
+        }
     }
 }

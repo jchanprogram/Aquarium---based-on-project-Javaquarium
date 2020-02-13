@@ -8,7 +8,7 @@ Algue::Algue() : EtreVivant()//: m_etat(true)
 {
 }
 
-Algue::Algue(bool naissance): EtreVivant(),m_naissance(naissance)
+Algue::Algue(bool naissance, unsigned int age) : EtreVivant(age),m_naissance(naissance)
 {
 }
 
@@ -29,3 +29,11 @@ void Algue::sePresenter () const
     }
 }
 
+/*void Algue::recevoirDegats(unsigned int degats)
+{
+        m_pv-=degats;
+}*/
+/*void Algue::eating()
+{
+    std::cout <<"et salut toi merde" << std::endl;
+}*/

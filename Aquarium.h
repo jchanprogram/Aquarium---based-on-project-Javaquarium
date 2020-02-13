@@ -26,7 +26,7 @@ public:
 
     Aquarium(); //constructeur
     Aquarium(std::string nom);
-    ~Aquarium(); //destructeur
+    virtual ~Aquarium(); //destructeur
 
 /******************************/
 /**          Action          **/
@@ -36,17 +36,23 @@ public:
     void addPoisson();
     void addAlgue();
     void afficherEtat();
+    void debutTour();
+    void afficherEtatCreation();
 
+    void faireMangerPoisson();
+    void manger();
+    void reproduce();
+    void reproduceAlgue();
 
 /******************************/
 /**        Accesseurs        **/
 /******************************/
+
     unsigned int getNbPoisson();
     unsigned int getNbAlgue();
 
 
-
-protected:
+protected: //Privé mais accessible aux éléments enfants
 
 private:
 
@@ -64,6 +70,10 @@ private:
     std::string m_sexe;
     std::string m_type;
     std::string m_espece;
+    unsigned int m_age;
+
+
+
 
 };
 

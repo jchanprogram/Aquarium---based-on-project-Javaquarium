@@ -1,9 +1,18 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <random>
+#include <vector>
+#include <algorithm>
 
 #include "Tool_Javaquarium.h"
 #include "EtreVivant.h"
+/*#include "Algue.h"
+#include "Poisson.h"
+#include "Aquarium.h"
+#include "Carnivore.h"
+#include "Herbivore.h"*/
+
 
 std::string choixNomPoisson()
 {
@@ -58,6 +67,7 @@ std::string choixSexePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 }
 
@@ -140,6 +150,34 @@ std::string choixEspecePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 
+}
+
+unsigned int choixAge()
+{
+    unsigned int age;
+    std::cout<<"Quel age a le poisson/l'algue qui va etre ajoute dans l'aquarium ?"<<std::endl;
+    std::cin>>age;
+    std::cout<<std::endl;
+     while(std::cin.fail()) //si l'entrée est pas un int, ca fait le while
+        {
+            std::cout << "Erreur, il faut ecrire un nombre" << std::endl; //On signale l'erreur avec un cout
+            std::cin.clear(); //On vide le flag qui indique qu'il y a une erreur
+            std::cin.ignore(256,'\n'); //ignorer les prochains 256 caractère jusqu'a trouver le retour chariot
+            std::cin >> age; //On redemande l'entrée
+        }
+    return age;
+}
+
+
+void hermaphroditeWithAge(Poisson &p1)
+{
+    p1.hermaWithAge();
+}
+
+void hermaphroditeOppor(Poisson &p1,Poisson &p2)
+{
+    p1.hermaOpportuniste(p2);
 }

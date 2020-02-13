@@ -2,13 +2,17 @@
 #include <iostream>
 #include <string>
 
-#include "Poisson.h"
+#include "Tool_Javaquarium.h"
 
-Poisson::Poisson() : EtreVivant()
+#include "Poisson.h"
+#include "EtreVivant.h"
+
+
+Poisson::Poisson() : EtreVivant()//,m_pv(10),m_estVivant(true),m_age(0) //constructeur
 {
 }
 
-Poisson::Poisson(std::string nom, std::string sexe): EtreVivant(),m_nom(nom), m_sexe(sexe)
+Poisson::Poisson(std::string nom, std::string sexe, unsigned int age): EtreVivant(age),m_nom(nom), m_sexe(sexe),m_haveEatThisTurn(false)
 {
 }
 
@@ -30,6 +34,42 @@ void Poisson::sePresenter () const
     }
 }
 
+bool Poisson::checkSameSpecies(Poisson &p1, Poisson &p2)
+{
+    if(p1.getEspece()==p2.getEspece())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Poisson::checkSameSexe(Poisson &p1, Poisson &p2)
+{
+    if(p1.getSexe()==p2.getSexe())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Poisson::canIEat(Poisson &p1)
+{
+    if(p1.getPv()<6)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 std::string Poisson::getNom() const
 {
     return m_nom;
@@ -40,3 +80,27 @@ std::string Poisson::getSexe() const
     return m_sexe;
 }
 
+void Poisson::setSexe(std::string sexe)
+{
+    m_sexe = sexe;
+}
+
+std::string Poisson::getType() const
+{
+    return m_type;
+}
+
+std::string Poisson::getEspece() const
+{
+    return m_espece;
+}
+
+bool Poisson::getHaveEatThisTurn() const
+{
+    return m_haveEatThisTurn;
+}
+
+void Poisson::setHaveEatThisTurn(bool haveEatThisTurn)
+{
+    m_haveEatThisTurn=haveEatThisTurn;
+}

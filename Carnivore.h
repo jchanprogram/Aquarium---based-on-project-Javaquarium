@@ -6,6 +6,8 @@
 #include <string>
 
 #include "Poisson.h"
+#include "Algue.h"
+#include "EtreVivant.h"
 
 class Carnivore : public Poisson
 {
@@ -17,8 +19,8 @@ public:
 /******************************/
 
     Carnivore(); //constructeur
-    Carnivore(std::string nom, std::string sexe);
-    Carnivore(std::string nom, std::string sexe, std::string type);
+    Carnivore(std::string nom, std::string sexe, unsigned int age);
+    Carnivore(std::string nom, std::string sexe,unsigned int age, std::string type);
     virtual~Carnivore(); //destructeur
 
 /******************************/
@@ -26,8 +28,18 @@ public:
 /******************************/
 
     virtual void sePresenter () const;
+    virtual void eating(EtreVivant &etre);
+
+/******************************/
+/**        Accesseurs        **/
+/******************************/
+
+    virtual std::string getType() const;
+    virtual std::string getEspece() const=0;
+
 
 protected:
+
     std::string m_type;
 
 
@@ -40,18 +52,13 @@ class Merou : public Carnivore
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
     Merou(); //constructeur
-    Merou(std::string nom, std::string sexe, std::string espece);
+    Merou(std::string nom, std::string sexe,unsigned int age,std::string type ,std::string espece);
     virtual~Merou(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    virtual std::string getEspece() const;
+    void hermaWithAge ();
 
 protected:
 
@@ -65,18 +72,12 @@ class Thon : public Carnivore
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
     Thon(); //constructeur
-    Thon(std::string nom, std::string sexe, std::string espece);
+    Thon(std::string nom, std::string sexe, unsigned int age,std::string type ,std::string espece);
     virtual~Thon(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    virtual std::string getEspece() const;
 
 
 protected:
@@ -91,18 +92,13 @@ class Poisson_Clown : public Carnivore
 
 public:
 
-/******************************/
-/** Constructeur/Destructeur **/
-/******************************/
     Poisson_Clown(); //constructeur
-    Poisson_Clown(std::string nom, std::string sexe, std::string espece);
+    Poisson_Clown(std::string nom, std::string sexe,unsigned int age, std::string type ,std::string espece);
     virtual~Poisson_Clown(); //destructeur
 
-/******************************/
-/**          Action          **/
-/******************************/
-
     virtual void sePresenter () const;
+    virtual std::string getEspece() const;
+    void hermaOpportuniste (Poisson &p1);
 
 protected:
 

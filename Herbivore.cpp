@@ -3,16 +3,17 @@
 #include <string>
 
 #include "Herbivore.h"
+#include "Algue.h"
 
 Herbivore::Herbivore() : Poisson() //constructeur
 {
 }
 
-Herbivore::Herbivore(std::string nom, std::string sexe) : Poisson(nom,sexe)
+Herbivore::Herbivore(std::string nom, std::string sexe,unsigned int age) : Poisson(nom,sexe,age)
 {
 }
 
-Herbivore::Herbivore(std::string nom, std::string sexe, std::string type) : Poisson(nom,sexe), m_type(type)
+Herbivore::Herbivore(std::string nom, std::string sexe,unsigned int age, std::string type) : Poisson(nom,sexe,age),m_type("Herbivore")
 {
 }
 
@@ -33,12 +34,25 @@ void Herbivore::sePresenter () const
     }
 }
 
+void Herbivore::eating(EtreVivant &etre)
+{
+    etre.recevoirDegats(2);
+    this->recevoirPv(3);
+}
+
+
+
+std::string Herbivore::getType() const
+{
+    return m_type;
+}
+
 Sole::Sole() : Herbivore()//constructeur
 {
 }
 
 
-Sole::Sole(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+Sole::Sole(std::string nom, std::string sexe,unsigned int age, std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -59,11 +73,32 @@ void Sole::sePresenter () const
     }
 }
 
+std::string Sole::getEspece() const
+{
+    return m_espece;
+}
+
+void Sole::hermaOpportuniste (Poisson &p1)
+{
+    if(checkSameSexe(*this, p1))
+    {
+        if(this->getSexe()=="Male")
+        {
+            this->setSexe("Femelle");
+        }
+        else
+        {
+            this->setSexe("Male");
+        }
+    }
+}
+
 Bar::Bar() : Herbivore()//constructeur
 {
 }
 
-Bar::Bar(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+
+Bar::Bar(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -84,12 +119,32 @@ void Bar::sePresenter () const
     }
 }
 
+std::string Bar::getEspece() const
+{
+    return m_espece;
+}
+
+void Bar::hermaWithAge ()
+{
+    if(this->getAge()>10)
+    {
+        if(this->getSexe()=="Male")
+        {
+            this->setSexe("Femelle");
+        }
+        else
+        {
+            this->setSexe("Male");
+        }
+    }
+}
+
 Carpe::Carpe() : Herbivore()//constructeur
 {
 }
 
 
-Carpe::Carpe(std::string nom, std::string sexe, std::string espece) : Herbivore(nom,sexe), m_espece(espece)
+Carpe::Carpe(std::string nom, std::string sexe, unsigned int age,std::string type, std::string espece) : Herbivore(nom,sexe,age,type), m_espece(espece)
 {
 }
 
@@ -110,6 +165,9 @@ void Carpe::sePresenter () const
     }
 }
 
-
+std::string Carpe::getEspece() const
+{
+    return m_espece;
+}
 
 
