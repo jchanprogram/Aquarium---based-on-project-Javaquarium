@@ -55,3 +55,9 @@ Un poisson qui n'a pas faim va aller voir un autre poisson (au hasard). Si ce po
 Concernant les algues, c'est plus simple : Une algue qui a 10 PV ou plus se sépare en deux pour donner naissance à une algue deux fois plus petite, donc avec deux fois moins de PV. Évidemment l'algue parente perds la moitié de ses PV dans le processus, mais garde son âge.
 Exercice 3.3 : Mais… la sexualité des poissons est horriblement compliquée !
 Eh bien oui, la sexualité des poisson est horriblement compliquée. Pourquoi ? Parce qu'ils ne sont pas simplement "mâle" ou "femelle" ! On distingue : Le poisson mono-sexué : Comme vous et moi, ces poissons naissent mâle ou femelle et n'en changent plus. Le poisson hermaphrodite avec l'âge : Ce poisson passe les 10 premiers tours de sa vie en tant que mâle et les 10 suivants en tant que femelle(Changement personnel : les 10 premières années les poissons ont le sexe choisi à l’achat ou aléatoire à la naissance puis change de sexe au passage à leur 11 ans). Le poisson hermaphrodite opportuniste : Ce poisson va rencontrer un membre de son espèce. Si ce membre est de même sexe que lui, notre poisson change de sexe pour pouvoir se reproduire.
+Je rappelle que nous avons déjà des races herbivores et carnivores, ce qui nous donne le tableau suivant :
+
+Poisson                      Herbivore      Carnivore
+Mono-sexué                   Carpe          Thon
+Hermaphrodite avec l'âge     Bar            Mérou
+Hermaphrodite opportuniste   Sole           Poisson clown
