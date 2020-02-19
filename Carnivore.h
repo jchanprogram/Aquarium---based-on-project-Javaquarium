@@ -58,7 +58,7 @@ public:
 
     virtual void sePresenter () const;
     virtual std::string getEspece() const;
-    void hermaWithAge ();
+    //void hermaWithAge ();
 
 protected:
 
@@ -98,7 +98,7 @@ public:
 
     virtual void sePresenter () const;
     virtual std::string getEspece() const;
-    void hermaOpportuniste (Poisson &p1);
+    //void hermaOpportuniste (Poisson &p1);
 
 protected:
 

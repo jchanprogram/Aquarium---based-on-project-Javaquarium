@@ -12,7 +12,7 @@ Poisson::Poisson() : EtreVivant()//,m_pv(10),m_estVivant(true),m_age(0) //constr
 {
 }
 
-Poisson::Poisson(std::string nom, std::string sexe, unsigned int age): EtreVivant(age),m_nom(nom), m_sexe(sexe),m_haveEatThisTurn(false)
+Poisson::Poisson(std::string nom, std::string sexe, unsigned int age): EtreVivant(age),m_nom(nom), m_sexe(sexe),m_haveEatReproduceThisTurn(false)
 {
 }
 
@@ -58,6 +58,7 @@ bool Poisson::checkSameSexe(Poisson &p1, Poisson &p2)
     }
 }
 
+
 bool Poisson::canIEat(Poisson &p1)
 {
     if(p1.getPv()<6)
@@ -67,6 +68,39 @@ bool Poisson::canIEat(Poisson &p1)
     else
     {
         return false;
+    }
+}
+
+void Poisson::hermaphroditeWithAge(Poisson &p1)
+{
+    if(this->getEspece()=="Bar" || this->getEspece()=="Merou")
+    {
+        if(this->getAge()>10)
+        {
+            if(this->getSexe()=="Male")
+            {
+                this->setSexe("Femelle");
+            }
+            else
+            {
+                this->setSexe("Male");
+            }
+        }
+    }
+}
+
+void Poisson::hermaOpportuniste (Poisson &p1)
+{
+    if(checkSameSexe(*this, p1))
+    {
+        if(this->getSexe()=="Male")
+        {
+            this->setSexe("Femelle");
+        }
+        else
+        {
+            this->setSexe("Male");
+        }
     }
 }
 
@@ -95,12 +129,12 @@ std::string Poisson::getEspece() const
     return m_espece;
 }
 
-bool Poisson::getHaveEatThisTurn() const
+bool Poisson::getHaveEatReproduceThisTurn() const
 {
-    return m_haveEatThisTurn;
+    return m_haveEatReproduceThisTurn;
 }
 
-void Poisson::setHaveEatThisTurn(bool haveEatThisTurn)
+void Poisson::setHaveEatReproduceThisTurn(bool haveEatReproduceThisTurn)
 {
-    m_haveEatThisTurn=haveEatThisTurn;
+    m_haveEatReproduceThisTurn=haveEatReproduceThisTurn;
 }

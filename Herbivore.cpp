@@ -78,7 +78,7 @@ std::string Sole::getEspece() const
     return m_espece;
 }
 
-void Sole::hermaOpportuniste (Poisson &p1)
+/*void Sole::hermaOpportuniste (Poisson &p1)
 {
     if(checkSameSexe(*this, p1))
     {
@@ -91,7 +91,7 @@ void Sole::hermaOpportuniste (Poisson &p1)
             this->setSexe("Male");
         }
     }
-}
+}*/
 
 Bar::Bar() : Herbivore()//constructeur
 {
@@ -124,7 +124,7 @@ std::string Bar::getEspece() const
     return m_espece;
 }
 
-void Bar::hermaWithAge ()
+/*void Bar::hermaWithAge ()
 {
     if(this->getAge()>10)
     {
@@ -137,7 +137,7 @@ void Bar::hermaWithAge ()
             this->setSexe("Male");
         }
     }
-}
+}*/
 
 Carpe::Carpe() : Herbivore()//constructeur
 {

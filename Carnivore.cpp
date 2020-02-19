@@ -83,7 +83,7 @@ Thon::Thon() : Carnivore()//constructeur
 {
 }
 
-void Merou::hermaWithAge()
+/*void Merou::hermaWithAge()
 {
     if(this->getAge()>10)
     {
@@ -96,7 +96,7 @@ void Merou::hermaWithAge()
             this->setSexe("Male");
         }
     }
-}
+}*/
 
 
 Thon::Thon(std::string nom, std::string sexe,unsigned int age, std::string type, std::string espece) : Carnivore(nom,sexe,age,type), m_espece(espece)
@@ -156,7 +156,7 @@ std::string Poisson_Clown::getEspece() const
     return m_espece;
 }
 
-void Poisson_Clown::hermaOpportuniste (Poisson &p1)
+/*void Poisson_Clown::hermaOpportuniste (Poisson &p1)
 {
     if(checkSameSexe(*this, p1))
     {
@@ -169,4 +169,4 @@ void Poisson_Clown::hermaOpportuniste (Poisson &p1)
             this->setSexe("Male");
         }
     }
-}
+}*/

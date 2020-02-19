@@ -21,10 +21,11 @@ int main()
 {
     int nb;
 
-/*
+
     std::random_device randomDevice;
     std::mt19937 g(randomDevice());
-    std::cout << g;*/
+       // std::uniform_int_distribution<> dis(0, 1);
+    //std::cout << dis(g);*/
 
 	// Creation de l'aquarium
 	Aquarium aquarium("juju");

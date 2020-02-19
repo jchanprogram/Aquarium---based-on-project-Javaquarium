@@ -4,7 +4,7 @@
 #include <random>
 #include <vector>
 #include <algorithm>
-
+#include <fstream>
 #include "Tool_Javaquarium.h"
 #include "EtreVivant.h"
 /*#include "Algue.h"
@@ -171,8 +171,59 @@ unsigned int choixAge()
     return age;
 }
 
+std::string choixSexeNouveauNePoisson()
+{
+    std::string sex;
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
+    std::uniform_int_distribution<> dis(0, 1);
 
-void hermaphroditeWithAge(Poisson &p1)
+    if(dis(g)==0)
+    {
+        sex="Male";
+    }
+    else
+    {
+        sex="Femelle";
+    }
+    return sex;
+}
+
+std::string choixNomNouveauNePoisson(std::string genre)
+{
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
+
+    std::string nomFichier;
+    if(genre=="Male")
+    {
+        nomFichier="../listeNomMasculin.txt";
+    }
+    else
+    {
+        nomFichier="../listeNomFeminin.txt";
+    }
+    std::ifstream listeNom(nomFichier);
+    if(!listeNom)
+    {
+        std::cout << "Erreur d'ouverture du fichier" << std::endl;
+    }
+    std::vector<std::string> nomPoisson;
+
+    std::string ligne;
+    while (getline(listeNom,ligne))
+    {
+        nomPoisson.push_back(ligne);
+    }
+    listeNom.close();
+
+    std::shuffle(nomPoisson.begin(), nomPoisson.end(), g);
+
+    return nomPoisson[0];
+}
+
+
+/*void hermaphroditeWithAge(Poisson &p1)
 {
     p1.hermaWithAge();
 }
@@ -180,4 +231,4 @@ void hermaphroditeWithAge(Poisson &p1)
 void hermaphroditeOppor(Poisson &p1,Poisson &p2)
 {
     p1.hermaOpportuniste(p2);
-}
+}*/

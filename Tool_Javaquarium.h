@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "EtreVivant.h"
 #include "Algue.h"
@@ -24,8 +25,11 @@ std::string choixEspecePoisson();
 
 unsigned int choixAge();
 
-void hermaphroditeWithAge(Poisson &p1);
-void hermaphroditeOppor(Poisson &p1,Poisson &p2);
+std::string choixNomNouveauNePoisson(std::string genre);
+std::string choixSexeNouveauNePoisson();
+
+//void hermaphroditeWithAge(Poisson &p1);
+//void hermaphroditeOppor(Poisson &p1,Poisson &p2);
 
 //void shuffleVector(std::vector<auto> A);
 

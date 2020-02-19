@@ -28,6 +28,9 @@ public:
     virtual bool checkSameSpecies(Poisson &p1, Poisson &p2);
     virtual bool checkSameSexe(Poisson &p1, Poisson &p2);
     virtual bool canIEat(Poisson &p1);
+    virtual void hermaphroditeWithAge(Poisson &p1);
+    virtual void hermaOpportuniste (Poisson &p1);
+
 
 /******************************/
 /**        Accesseurs        **/
@@ -38,8 +41,8 @@ public:
     void setSexe(std::string sexe);
     virtual std::string getType() const=0;
     virtual std::string getEspece() const=0;
-    virtual bool getHaveEatThisTurn() const;
-    virtual void setHaveEatThisTurn(bool haveEatThisTurn);
+    virtual bool getHaveEatReproduceThisTurn() const;
+    virtual void setHaveEatReproduceThisTurn(bool haveEatReproduceThisTurn);
 
 protected: //Privé mais accessible aux éléments enfants
 
@@ -47,7 +50,7 @@ protected: //Privé mais accessible aux éléments enfants
     std::string m_sexe;
     std::string m_type;
     std::string m_espece;
-    bool m_haveEatThisTurn;
+    bool m_haveEatReproduceThisTurn;
 
 
 
