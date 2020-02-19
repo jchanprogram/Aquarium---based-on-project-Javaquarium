@@ -44,3 +44,14 @@ Les poissons et les algues sont des êtres vivants. Tous les êtres vivants comm
 
 Chaque algue grandit à chaque tour : elle gagne 1 PV. Une algue mangée par un poisson perds 2 PV.
 A chaque tour qui passe, le poisson a de plus en plus faim : il perds 1 PV. Un poisson qui a suffisamment faim (5 PV ou moins) cherche à manger. Les herbivores n'ont pas trop de problème, mais les algues ne sont pas très nourrissantes : +3 PV. Les carnivores mangent de la bonne viande de poisson, qui fait gagner +5 PV. Un carnivore attaque chaque tour un poisson au hasard : il n'a qu'une seule chance. Hélas pour lui, il ne peut ni se manger lui-même, ni manger un poisson de son espèce. Se faire mordre fait très mal et fait perdre 4 PV.
+
+Partie 3 : Reproductions
+Exercice 3.1 : Le désastre du vieillissement
+Tous les êtres vivants naissent à l'âge de 0 tours. Les êtres vivants qui ont plus de 20 tours meurent de vieillesse.
+On peut acheter des poissons et des algues à un âge quelconque.
+Exercice 3.2 : Le miracle de la jeunesse
+Notre aquarium précédent est condamné à être désert au bout de 20 tours, ou alors il faut remettre sans arrêt des algues et des poissons. Pas très intéressant, non ? Nous avons des poissons mâles et femelles ? Faisons-les se reproduire !
+Un poisson qui n'a pas faim va aller voir un autre poisson (au hasard). Si ce poisson est de même race et de sexe opposé, les deux poissons se reproduisent et donnent naissance à un troisième poisson, de même race et de sexe aléatoire. Il n'a qu'un seul essai par tour.
+Concernant les algues, c'est plus simple : Une algue qui a 10 PV ou plus se sépare en deux pour donner naissance à une algue deux fois plus petite, donc avec deux fois moins de PV. Évidemment l'algue parente perds la moitié de ses PV dans le processus, mais garde son âge.
+Exercice 3.3 : Mais… la sexualité des poissons est horriblement compliquée !
+Eh bien oui, la sexualité des poisson est horriblement compliquée. Pourquoi ? Parce qu'ils ne sont pas simplement "mâle" ou "femelle" ! On distingue : Le poisson mono-sexué : Comme vous et moi, ces poissons naissent mâle ou femelle et n'en changent plus. Le poisson hermaphrodite avec l'âge : Ce poisson passe les 10 premiers tours de sa vie en tant que mâle et les 10 suivants en tant que femelle(Changement personnel : les 10 premières années les poissons ont le sexe choisi à l’achat ou aléatoire à la naissance puis change de sexe au passage à leur 11 ans). Le poisson hermaphrodite opportuniste : Ce poisson va rencontrer un membre de son espèce. Si ce membre est de même sexe que lui, notre poisson change de sexe pour pouvoir se reproduire.
