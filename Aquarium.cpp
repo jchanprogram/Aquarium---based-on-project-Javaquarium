@@ -210,6 +210,10 @@ void Aquarium::faireMangerPoisson()
         {
             listOfPoisson[i]->setHaveEatReproduceThisTurn(false);
         }
+
+    }
+    if(listOfAlgue.size()>0)
+    {
         Aquarium::reproduceAlgue();
     }
 }
@@ -272,7 +276,7 @@ void Aquarium::reproduce()
     }
     else if(listOfPoisson[0]->getAge()==0 || listOfPoisson[1]->getAge()==0)
     {
-        std::cout << "Je suis un enfant encore, je ne peux pas me reproduire"<<std::endl;
+        //std::cout << "Je suis un enfant encore, je ne peux pas me reproduire"<<std::endl;
     }
     else
     {
@@ -287,7 +291,7 @@ void Aquarium::reproduce()
             if(!listOfPoisson[0]->checkSameSexe(*listOfPoisson[0], *listOfPoisson[1]))
             {
             //std::string espece=listOfPoisson[0]->getEspece();
-            std::cout<<listOfPoisson[0]->getNom()<<" va fourniquer avec "<<listOfPoisson[1]->getNom()<<std::endl;
+                std::cout<<listOfPoisson[0]->getNom()<<" va fourniquer avec "<<listOfPoisson[1]->getNom()<<std::endl;
                 m_sexe = choixSexeNouveauNePoisson();
                 m_nomPoisson = choixNomNouveauNePoisson(m_sexe);
                 if(espece=="Merou")
@@ -353,6 +357,14 @@ void Aquarium::debutTour()
                 listOfAlgue.erase(listOfAlgue.begin()+i);
             }
         }
+        /*** Gestion de l'indice 0 ***/
+        listOfAlgue[0]->recevoirPv(1);
+        listOfAlgue[0]->ageSup();
+        if(!listOfAlgue[0]->checkEstVivant())
+        {
+            delete listOfAlgue[0];
+            listOfAlgue.erase(listOfAlgue.begin()+0);
+        }
     }
     else if(listOfAlgue.size()==1)
     {
@@ -382,6 +394,17 @@ void Aquarium::debutTour()
                 listOfPoisson.erase(listOfPoisson.begin()+i);
             }
 
+        }
+         /*** Gestion de l'indice 0 ***/
+        listOfPoisson[0]->recevoirDegats(1);
+        listOfPoisson[0]->ageSup();
+        /******/
+        listOfPoisson[0]->hermaphroditeWithAge(*listOfPoisson[0]);
+    //}
+        if(!listOfPoisson[0]->checkEstVivant())
+        {
+            delete listOfPoisson[0];
+            listOfPoisson.erase(listOfPoisson.begin()+0);
         }
     }
     else if(listOfPoisson.size()==1)
