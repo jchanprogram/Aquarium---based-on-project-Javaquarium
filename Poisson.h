@@ -6,18 +6,17 @@
 #include <string>
 
 #include "EtreVivant.h"
+#include "Algue.h"
 
 class Poisson : public EtreVivant
 {
 
 public:
-
 /******************************/
 /** Constructeur/Destructeur **/
 /******************************/
-
     Poisson(); //constructeur
-    Poisson(std::string nom, std::string sexe);
+    Poisson(std::string nom, std::string sexe, unsigned int age);
     virtual ~Poisson(); //destructeur
 
 /******************************/
@@ -25,6 +24,13 @@ public:
 /******************************/
 
     virtual void sePresenter () const;
+    virtual void eating(EtreVivant &etre) = 0;
+    virtual bool checkSameSpecies(Poisson &p1, Poisson &p2);
+    virtual bool checkSameSexe(Poisson &p1, Poisson &p2);
+    virtual bool canIEat(Poisson &p1);
+    virtual void hermaphroditeWithAge(Poisson &p1);
+    virtual void hermaOpportuniste (Poisson &p1);
+
 
 /******************************/
 /**        Accesseurs        **/
@@ -32,19 +38,32 @@ public:
 
     std::string getNom() const;
     std::string getSexe() const;
+    void setSexe(std::string sexe);
+    virtual std::string getType() const=0;
+    virtual std::string getEspece() const=0;
+    virtual bool getHaveEatReproduceThisTurn() const;
+    virtual void setHaveEatReproduceThisTurn(bool haveEatReproduceThisTurn);
 
-
-protected:
+protected: //Privé mais accessible aux éléments enfants
 
     std::string m_nom;
     std::string m_sexe;
+    std::string m_type;
+    std::string m_espece;
+    bool m_haveEatReproduceThisTurn;
 
 
 
 private:
 
+    /*std::string m_nom;
+    std::string m_sexe;*/
+
 
 };
+
+
+
 
 
 #endif // POISSON_H_INCLUDED

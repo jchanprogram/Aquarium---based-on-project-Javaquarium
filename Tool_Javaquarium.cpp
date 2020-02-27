@@ -1,9 +1,18 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
-
+#include <random>
+#include <vector>
+#include <algorithm>
+#include <fstream>
 #include "Tool_Javaquarium.h"
 #include "EtreVivant.h"
+/*#include "Algue.h"
+#include "Poisson.h"
+#include "Aquarium.h"
+#include "Carnivore.h"
+#include "Herbivore.h"*/
+
 
 std::string choixNomPoisson()
 {
@@ -58,6 +67,7 @@ std::string choixSexePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 }
 
@@ -140,6 +150,85 @@ std::string choixEspecePoisson()
             break;
         default:
             std::cout << "You made an illegal choice"<<std::endl;
+            return 0;
     }
 
 }
+
+unsigned int choixAge()
+{
+    unsigned int age;
+    std::cout<<"Quel age a le poisson/l'algue qui va etre ajoute dans l'aquarium ?"<<std::endl;
+    std::cin>>age;
+    std::cout<<std::endl;
+     while(std::cin.fail()) //si l'entrée est pas un int, ca fait le while
+        {
+            std::cout << "Erreur, il faut ecrire un nombre" << std::endl; //On signale l'erreur avec un cout
+            std::cin.clear(); //On vide le flag qui indique qu'il y a une erreur
+            std::cin.ignore(256,'\n'); //ignorer les prochains 256 caractère jusqu'a trouver le retour chariot
+            std::cin >> age; //On redemande l'entrée
+        }
+    return age;
+}
+
+std::string choixSexeNouveauNePoisson()
+{
+    std::string sex;
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
+    std::uniform_int_distribution<> dis(0, 1);
+
+    if(dis(g)==0)
+    {
+        sex="Male";
+    }
+    else
+    {
+        sex="Femelle";
+    }
+    return sex;
+}
+
+std::string choixNomNouveauNePoisson(std::string genre)
+{
+    std::random_device randomDevice;
+    std::mt19937 g(randomDevice());
+
+    std::string nomFichier;
+    if(genre=="Male")
+    {
+        nomFichier="../listeNomMasculin.txt";
+    }
+    else
+    {
+        nomFichier="../listeNomFeminin.txt";
+    }
+    std::ifstream listeNom(nomFichier);
+    if(!listeNom)
+    {
+        std::cout << "Erreur d'ouverture du fichier" << std::endl;
+    }
+    std::vector<std::string> nomPoisson;
+
+    std::string ligne;
+    while (getline(listeNom,ligne))
+    {
+        nomPoisson.push_back(ligne);
+    }
+    listeNom.close();
+
+    std::shuffle(nomPoisson.begin(), nomPoisson.end(), g);
+
+    return nomPoisson[0];
+}
+
+
+/*void hermaphroditeWithAge(Poisson &p1)
+{
+    p1.hermaWithAge();
+}
+
+void hermaphroditeOppor(Poisson &p1,Poisson &p2)
+{
+    p1.hermaOpportuniste(p2);
+}*/
